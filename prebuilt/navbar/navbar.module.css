@@ -1,0 +1,3 @@
+.navbarIcon {
+    @apply font-bold cursor-pointer text-2xl;
+}
