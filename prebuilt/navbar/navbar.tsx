@@ -2,10 +2,12 @@ import styles from './navbar.module.css'
 
 export function Navbar() {
   return (
-    <nav className={'navbar bg-base-100 shadow-sm'}>
+    <nav className={'navbar bg-base-100 shadow-sm xs:sticky sm:sticky md:sticky top-0 z-10'}>
       <div className={'container mx-auto flex gap-10'}>
         <div className={'flex-1'}>
-          <a className={styles.navbarIcon} href={'/'}>Romdhani</a>
+          <a className={styles.navbarIcon} href={'/'}>
+            Romdhani
+          </a>
         </div>
         <div>
           <ul
@@ -14,13 +16,10 @@ export function Navbar() {
             }
           >
             <li>
-              <a>Tutorial</a>
-            </li>
-            <li>
               <a href={'/about'}>About</a>
             </li>
             <li>
-              <a>Contact</a>
+              <a href="https://www.linkedin.com/in/furqon-romdhani-724a29150" target={'_blank'}>Hire Me</a>
             </li>
           </ul>
         </div>
@@ -47,18 +46,15 @@ export function Navbar() {
                 </svg>
               </label>
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side z-10">
               <label htmlFor="my-drawer" className="drawer-overlay"></label>
-              <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+              <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content z-10">
                 {/* Sidebar content here */}
-                <li>
-                  <a>Tutorial</a>
-                </li>
                 <li>
                   <a href={'/about'}>About</a>
                 </li>
                 <li>
-                  <a>Contact</a>
+                  <a href="https://www.linkedin.com/in/furqon-romdhani-724a29150" target={'_blank'}>Hire Me</a>
                 </li>
               </ul>
             </div>

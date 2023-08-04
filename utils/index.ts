@@ -1,0 +1,1 @@
+export { htmlText } from './html'
