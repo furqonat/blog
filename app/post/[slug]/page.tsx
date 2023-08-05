@@ -4,6 +4,7 @@ import moment from 'moment'
 import { Metadata, ResolvingMetadata } from 'next'
 
 const prisma = new PrismaClient()
+
 type Props = {
   params: {
     slug: string
@@ -12,7 +13,7 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent?: ResolvingMetadata
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
   const post = await prisma.post.findFirst({

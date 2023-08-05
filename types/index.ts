@@ -1,4 +1,3 @@
-export * from './supabase'
 
 export interface Post {
   id: string
