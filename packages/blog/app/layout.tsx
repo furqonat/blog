@@ -1,8 +1,8 @@
-import { Navbar } from '@iofel/prebuilt'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import { ReactNode } from 'react'
+import { Navbar } from '../prebuilt'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -18,9 +18,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body
-        className={`${openSans.className} flex flex-col gap-10 min-h-screen`}
-      >
+      <body className={`${openSans.className} flex flex-col gap-10 min-h-screen`}>
         <div className={'flex-1'}>
           <Navbar />
           <div className={'mt-7'}>{children}</div>
@@ -34,11 +32,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div>
               <span className="footer-title">Social</span>
               <div className="grid grid-flow-col gap-4">
-                <a
-                  href={'https://www.linkedin.com/in/furqon-romdhani-724a29150'}
-                  target={'_blank'}
-                  className={'px-1'}
-                >
+                <a href={'https://www.linkedin.com/in/furqon-romdhani-724a29150'} target={'_blank'} className={'px-1'}>
                   <svg
                     fill="#ffffff"
                     height="24"
@@ -68,12 +62,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     </g>
                   </svg>
                 </a>
-                <a
-                  href={
-                    'https://www.youtube.com/channel/UC3UqPsxQk0ajU44eFEQYIBA'
-                  }
-                  target={'_blank'}
-                >
+                <a href={'https://www.youtube.com/channel/UC3UqPsxQk0ajU44eFEQYIBA'} target={'_blank'}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -84,10 +73,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
                   </svg>
                 </a>
-                <a
-                  href={'https://www.facebook.com/dani.oscx'}
-                  target={'_blank'}
-                >
+                <a href={'https://www.facebook.com/dani.oscx'} target={'_blank'}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

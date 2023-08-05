@@ -1,9 +1,8 @@
 'use client'
-
-import { Post } from '@iofel/types'
-import { htmlText } from '@iofel/utils'
 import { marked } from 'marked'
 import Image from 'next/image'
+import { Post } from '../../types'
+import { htmlText } from '../../utils'
 import { useEffect, useState } from 'react'
 import ResponsivePagination from 'react-responsive-pagination'
 import 'react-responsive-pagination/themes/classic.css'
@@ -29,37 +28,24 @@ export default function Post() {
         {posts?.map((post) => (
           <div
             key={post.id}
-            className={
-              'card border border-gray-200 border-solid lg:card-side xl:card-side xxl:card-side'
-            }
+            className={'card border border-gray-200 border-solid lg:card-side xl:card-side xxl:card-side'}
           >
             <Image
               width={400}
               height={400}
-              src={`https://source.unsplash.com/random/400x170?${post.title
-                .split(' ')
-                .join(',')}`}
+              src={`https://source.unsplash.com/random/400x170?${post.title.split(' ').join(',')}`}
               alt={post.title}
             />
             <div className="card-body">
               <h2 className="card-title">{post.title}</h2>
-              <p className={'text-ellipsis line-clamp-1'}>
-                {htmlText(marked.parse(`${post?.content}`))}
-              </p>
+              <p className={'text-ellipsis line-clamp-1'}>{htmlText(marked.parse(`${post?.content}`))}</p>
               <div className="card-actions justify-end">
                 <div className={'flex flex-row gap-6 w-full items-center'}>
-                  <div
-                    className={
-                      'flex-1 flex gap-4 xs:flex-col sm:flex-col flex-row'
-                    }
-                  >
+                  <div className={'flex-1 flex gap-4 xs:flex-col sm:flex-col flex-row'}>
                     {post?.categories?.map((category, index) => {
                       if (index < 2) {
                         return (
-                          <div
-                            key={category.name}
-                            className={'badge badge-neutral rounded-md'}
-                          >
+                          <div key={category.name} className={'badge badge-neutral rounded-md'}>
                             {category.name}
                           </div>
                         )
@@ -67,10 +53,7 @@ export default function Post() {
                       return null
                     })}
                   </div>
-                  <a
-                    href={`post/${post.slug}`}
-                    className="btn btn-primary rounded-md"
-                  >
+                  <a href={`post/${post.slug}`} className="btn btn-primary rounded-md">
                     Read More
                   </a>
                 </div>
