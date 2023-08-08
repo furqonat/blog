@@ -53,6 +53,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-responsive-pagination": "^2.2.2",
+    "simplemde": "^1.11.2",
     "tslib": "^2.3.0"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   }
 }
