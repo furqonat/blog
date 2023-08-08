@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import { ReactNode } from 'react'
 import { Navbar } from '../prebuilt'
+import { Analytics } from '@vercel/analytics/react'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -88,6 +89,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   )

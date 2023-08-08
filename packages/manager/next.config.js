@@ -21,6 +21,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    esmExternals: 'loose'
+  }
 };
 
 const plugins = [

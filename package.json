@@ -46,14 +46,17 @@
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
+    "@uiw/react-md-editor": "^3.23.5",
+    "@vercel/analytics": "^1.0.1",
     "encoding": "^0.1.13",
     "marked": "^6.0.0",
     "moment": "^2.29.4",
     "next": "13.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.7",
     "react-responsive-pagination": "^2.2.2",
-    "simplemde": "^1.11.2",
+    "react-select": "^5.7.4",
     "tslib": "^2.3.0"
   },
   "prisma": {

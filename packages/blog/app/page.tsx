@@ -18,6 +18,9 @@ export default async function PostPage() {
     include: {
       categories: true,
     },
+    where: {
+      status: true,
+    }
   })
   const python = await prisma.post.findMany({
     where: {
@@ -28,6 +31,7 @@ export default async function PostPage() {
           },
         },
       },
+      status: true,
     },
     include: {
       categories: true,
@@ -43,6 +47,7 @@ export default async function PostPage() {
           },
         },
       },
+      status: true,
     },
     include: {
       categories: true,

@@ -15,6 +15,9 @@ export async function GET(request: Request) {
         },
         take: take ? Number(take) : 20,
         skip: skip ? Number(skip) : 0,
+        where: {
+            status: true,
+        }
     })
     const total = await prisma.post.count()
     return NextResponse.json({
