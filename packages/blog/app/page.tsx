@@ -5,8 +5,8 @@ import Image from 'next/image'
 const prisma = new PrismaClient()
 
 export const metadata: Metadata = {
-  title: 'Romdhani | Dashboard',
-  description: 'dashboard page of romdhani',
+  title: 'ByFurqon | Dashboard',
+  description: 'dashboard page of ByFurqon',
 }
 
 export default async function PostPage() {

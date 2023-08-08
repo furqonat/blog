@@ -6,7 +6,7 @@ export function Navbar() {
       <div className={'container mx-auto flex gap-10'}>
         <div className={'flex-1'}>
           <a className={styles.navbarIcon} href={'/'}>
-            Romdhani
+            ByFurqon
           </a>
         </div>
         <div>
@@ -19,7 +19,7 @@ export function Navbar() {
               <a href={'/about'}>About</a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/furqon-romdhani-724a29150" target={'_blank'}>Hire Me</a>
+              <a href="https://www.linkedin.com/in/furqon-ByFurqon-724a29150" target={'_blank'}>Hire Me</a>
             </li>
           </ul>
         </div>
@@ -54,7 +54,7 @@ export function Navbar() {
                   <a href={'/about'}>About</a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/furqon-romdhani-724a29150" target={'_blank'}>Hire Me</a>
+                  <a href="https://www.linkedin.com/in/furqon-ByFurqon-724a29150" target={'_blank'}>Hire Me</a>
                 </li>
               </ul>
             </div>

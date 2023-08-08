@@ -7,7 +7,7 @@ import { Navbar } from '../prebuilt'
 const openSans = Open_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Romdhani | Dashboard',
+  title: 'By | Dashboard',
   description: 'A personal blog',
 }
 
@@ -27,12 +27,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className={'container mx-auto footer'}>
             <div>
               <object data={'/my-logo-white.svg'} width={40} height={60} />
-              <p>Furqon Romdhani © {new Date().getFullYear()}</p>
+              <p>Furqon ByFurqon © {new Date().getFullYear()}</p>
             </div>
             <div>
               <span className="footer-title">Social</span>
               <div className="grid grid-flow-col gap-4">
-                <a href={'https://www.linkedin.com/in/furqon-romdhani-724a29150'} target={'_blank'} className={'px-1'}>
+                <a href={'https://www.linkedin.com/in/furqon-ByFurqon-724a29150'} target={'_blank'} className={'px-1'}>
                   <svg
                     fill="#ffffff"
                     height="24"

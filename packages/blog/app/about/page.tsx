@@ -31,14 +31,14 @@ export default function AboutPage() {
           />
         </div>
         <article className={`prose text-justify bg-gray-200 p-8 `}>
-          <h2>Furqon Romdhani</h2>
+          <h2>Furqon ByFurqon</h2>
           <pre>Fullstack Developer</pre>
           <div
             onClick={() => setReadMore(!readMore)}
             className={`${readMore ? 'text-ellipsis line-clamp-6' : ''}`}
           >
             <p>
-              Hello there! Welcome to my profile. I&apos;m Furqon Romdhani, a
+              Hello there! Welcome to my profile. I&apos;m Furqon ByFurqon, a
               passionate and experienced full-stack developer based in
               Indonesia.
             </p>
