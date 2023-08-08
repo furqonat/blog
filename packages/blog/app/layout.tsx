@@ -27,7 +27,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className={'container mx-auto footer'}>
             <div>
               <object data={'/my-logo-white.svg'} width={40} height={60} />
-              <p>Furqon ByFurqon © {new Date().getFullYear()}</p>
+              <p>Furqon Romdhani © {new Date().getFullYear()}</p>
             </div>
             <div>
               <span className="footer-title">Social</span>
