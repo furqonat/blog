@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description: 'dashboard page of ByFurqon',
 }
 
-export default async function PostPage() {
-  const posts = await prisma.post.findMany({
+async function getPosts() {
+  return await prisma.post.findMany({
     take: 20,
     orderBy: {
       created_at: 'desc',
@@ -20,9 +20,12 @@ export default async function PostPage() {
     },
     where: {
       status: true,
-    }
+    },
   })
-  const python = await prisma.post.findMany({
+}
+
+async function getPython() {
+  return await prisma.post.findMany({
     where: {
       categories: {
         some: {
@@ -38,7 +41,10 @@ export default async function PostPage() {
     },
     take: 20,
   })
-  const typescript = await prisma.post.findMany({
+}
+
+async function getJsAndTs() {
+  return await prisma.post.findMany({
     where: {
       categories: {
         some: {
@@ -54,6 +60,12 @@ export default async function PostPage() {
     },
     take: 20,
   })
+}
+
+export default async function PostPage() {
+  const posts = await getPosts()
+  const python = await getPython()
+  const typescript = await getJsAndTs()
 
   return (
     <main className={'container mx-auto flex flex-col gap-10'}>
@@ -64,32 +76,23 @@ export default async function PostPage() {
             <a
               href={`/post/${post.slug}`}
               key={post.id}
-              className={
-                'card w-96 border border-solid border-gray-200 flex-shrink-0'
-              }
+              className={'card w-96 border border-solid border-gray-200 flex-shrink-0'}
             >
               <Image
                 width={400}
                 height={400}
-                src={`https://source.unsplash.com/random/400x170?${post.title
-                  .split(' ')
-                  .join(',')}`}
+                src={`https://source.unsplash.com/random/400x170?${post.title.split(' ').join(',')}`}
                 alt={post.title}
               />
               <div className="card-body">
-                <h2 className="card-title text-ellipsis line-clamp-1">
-                  {post.title}
-                </h2>
+                <h2 className="card-title text-ellipsis line-clamp-1">{post.title}</h2>
                 <div className="card-actions justify-end">
                   <div className={'flex flex-row gap-2 w-full items-center'}>
                     <div className={'flex-1 flex gap-4'}>
                       {post?.categories.map((category, index) => {
                         if (index < 2) {
                           return (
-                            <div
-                              key={category.name}
-                              className={'badge badge-neutral rounded-md'}
-                            >
+                            <div key={category.name} className={'badge badge-neutral rounded-md'}>
                               {category.name}
                             </div>
                           )
@@ -116,25 +119,18 @@ export default async function PostPage() {
               <Image
                 width={400}
                 height={400}
-                src={`https://source.unsplash.com/random/400x170?${post.title
-                  .split(' ')
-                  .join(',')}`}
+                src={`https://source.unsplash.com/random/400x170?${post.title.split(' ').join(',')}`}
                 alt={post.title}
               />
               <div className="card-body">
-                <h2 className="card-title text-ellipsis line-clamp-1">
-                  {post.title}
-                </h2>
+                <h2 className="card-title text-ellipsis line-clamp-1">{post.title}</h2>
                 <div className="card-actions justify-end">
                   <div className={'flex flex-row gap-2 w-full items-center'}>
                     <div className={'flex-1 flex gap-4'}>
                       {post.categories.map((category, index) => {
                         if (index < 2) {
                           return (
-                            <div
-                              key={category.name}
-                              className={'badge badge-neutral rounded-md'}
-                            >
+                            <div key={category.name} className={'badge badge-neutral rounded-md'}>
                               {category.name}
                             </div>
                           )
@@ -161,25 +157,18 @@ export default async function PostPage() {
               <Image
                 width={400}
                 height={400}
-                src={`https://source.unsplash.com/random/400x170?${post.title
-                  .split(' ')
-                  .join(',')}`}
+                src={`https://source.unsplash.com/random/400x170?${post.title.split(' ').join(',')}`}
                 alt={post.title}
               />
               <div className="card-body">
-                <h2 className="card-title text-ellipsis line-clamp-1">
-                  {post.title}
-                </h2>
+                <h2 className="card-title text-ellipsis line-clamp-1">{post.title}</h2>
                 <div className="card-actions justify-end">
                   <div className={'flex flex-row gap-2 w-full items-center'}>
                     <div className={'flex-1 flex gap-4'}>
                       {post.categories.map((category, index) => {
                         if (index < 2) {
                           return (
-                            <div
-                              key={category.name}
-                              className={'badge badge-neutral rounded-md'}
-                            >
+                            <div key={category.name} className={'badge badge-neutral rounded-md'}>
                               {category.name}
                             </div>
                           )
