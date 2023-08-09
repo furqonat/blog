@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import Image from 'next/image'
 import moment from 'moment'
 import NewPost from './newPost'
+import Publish from './publish'
 
 const prisma = new PrismaClient()
 
@@ -56,6 +57,9 @@ export default async function Index() {
                       }
                       return null
                     })}
+                  </div>
+                  <div className={'flex'}>
+                    <Publish id={item.id} />
                   </div>
                 </div>
               </div>
