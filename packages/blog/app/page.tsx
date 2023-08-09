@@ -54,6 +54,8 @@ export default async function PostPage() {
     },
     take: 20,
   })
+
+  console.log(posts, python, typescript)
   return (
     <main className={'container mx-auto flex flex-col gap-10'}>
       <div className={'flex flex-col gap-5'}>
