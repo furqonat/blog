@@ -1,63 +1,9 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
 
 
 export const metadata: Metadata = {
   title: 'ByFurqon | Dashboard',
   description: 'dashboard page of ByFurqon',
-}
-
-async function getPosts() {
-  return await prisma.post.findMany({
-    take: 20,
-    orderBy: {
-      created_at: 'desc',
-    },
-    include: {
-      categories: true,
-    },
-    where: {
-      status: true,
-    },
-  })
-}
-
-async function getPython() {
-  return await prisma.post.findMany({
-    where: {
-      categories: {
-        some: {
-          name: {
-            equals: 'Python',
-          },
-        },
-      },
-      status: true,
-    },
-    include: {
-      categories: true,
-    },
-    take: 20,
-  })
-}
-
-async function getJsAndTs() {
-  return await prisma.post.findMany({
-    where: {
-      categories: {
-        some: {
-          name: {
-            contains: 'Typescript',
-          },
-        },
-      },
-      status: true,
-    },
-    include: {
-      categories: true,
-    },
-    take: 20,
-  })
 }
 
 export default async function PostPage() {
