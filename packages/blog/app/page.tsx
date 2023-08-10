@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 }
 
 export const revalidate = 30
-export const getPosts = cache(async () => {
+
+const getPosts = cache(async () => {
   return await prisma.post.findMany({
     take: 20,
     orderBy: {
@@ -26,7 +27,7 @@ export const getPosts = cache(async () => {
   })
 })
 
-export const getPython = cache(async () => {
+const getPython = cache(async () => {
   return await prisma.post.findMany({
     where: {
       categories: {
@@ -45,7 +46,7 @@ export const getPython = cache(async () => {
   })
 })
 
-export const getJsAndTs = cache(async () => {
+const getJsAndTs = cache(async () => {
   return await prisma.post.findMany({
     where: {
       categories: {
