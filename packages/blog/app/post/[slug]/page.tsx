@@ -10,7 +10,7 @@ type Props = {
     slug: string
   }
 }
-export const revalidate = 1
+export const revalidate = 30
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   // read route params
   const post = await prisma.post.findFirst({

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'dashboard page of ByFurqon',
 }
 
-export const revalidate = 1
+export const revalidate = 30
 export const getPosts = cache(async () => {
   return await prisma.post.findMany({
     take: 20,
