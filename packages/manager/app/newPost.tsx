@@ -11,6 +11,7 @@ export default function NewPost() {
 
   const handleOnClickCreate = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
+<<<<<<< HEAD
     setLoading(true)
     fetch('/api/post', { method: 'POST', body: JSON.stringify({ title: title }) })
       .then(async (resp) => {
@@ -20,6 +21,8 @@ export default function NewPost() {
         setLoading(false)
       })
       .catch(() => setLoading(false))
+=======
+>>>>>>> parent of 0433bcb (Revert "dynamic page to home")
   }
   return (
     <>
@@ -36,8 +39,12 @@ export default function NewPost() {
             onChange={(e) => setTitle(e.target.value)}
           />
           <div className={'modal-action'}>
+<<<<<<< HEAD
             <div className={'btn btn-primary rounded-md'} onClick={handleOnClickCreate}>
               {loading ? <span className={'loading loading-spinner'}></span> : null}
+=======
+            <div className={'btn btn-primary rounded-md'} onClick={(e) => {}}>
+>>>>>>> parent of 0433bcb (Revert "dynamic page to home")
               Create
             </div>
             <button className={'btn rounded-md'}>Cancel</button>
