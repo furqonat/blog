@@ -2,22 +2,21 @@ import { PrismaClient } from '@prisma/client'
 import Image from 'next/image'
 import moment from 'moment'
 import NewPost from './newPost'
+import Publish from './publish'
+import Draft from './draft'
+
+export const revalidate = 1
 
 const prisma = new PrismaClient()
-
 export default async function Index() {
   const posts = await prisma.post.findMany({
     include: {
       categories: true,
     },
+    orderBy: {
+      created_at: 'desc',
+    },
   })
-  const createPost = async () =>
-    await prisma.post.create({
-      data: {
-        title: 'untitel',
-        slug: 'untitled',
-      },
-    })
   return (
     <main className={'container mx-auto flex flex-col gap-10'}>
       <div />
@@ -57,6 +56,7 @@ export default async function Index() {
                       return null
                     })}
                   </div>
+                  <div className={'flex'}>{!item.status ? <Publish id={item.id} /> : <Draft id={item.id} />}</div>
                 </div>
               </div>
             </a>

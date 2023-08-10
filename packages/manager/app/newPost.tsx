@@ -1,12 +1,25 @@
 'use client'
 
 import React, { useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function NewPost() {
+  const router = useRouter()
   const dialogRef = useRef<HTMLDialogElement>(null)
   const [title, setTitle] = useState('')
+  const [loading, setLoading] = useState(false)
+
   const handleOnClickCreate = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+    e.preventDefault()
+    setLoading(true)
+    fetch('/api/post', { method: 'POST', body: JSON.stringify({ title: title }) })
+      .then(async (resp) => {
+        dialogRef?.current?.close()
+        const id = await resp.json()
+        router.push(`/post/${id.id}`)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
   }
   return (
     <>
@@ -23,7 +36,10 @@ export default function NewPost() {
             onChange={(e) => setTitle(e.target.value)}
           />
           <div className={'modal-action'}>
-            <div className={'btn btn-primary rounded-md'} onClick={(e) => {}}>Create</div>
+            <div className={'btn btn-primary rounded-md'} onClick={handleOnClickCreate}>
+              {loading ? <span className={'loading loading-spinner'}></span> : null}
+              Create
+            </div>
             <button className={'btn rounded-md'}>Cancel</button>
           </div>
         </form>
