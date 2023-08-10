@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: 'dashboard page of ByFurqon',
 }
 
+export const revalidate = 1
+
 async function getPosts() {
   return await prisma.post.findMany({
     take: 20,

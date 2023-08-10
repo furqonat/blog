@@ -10,35 +10,27 @@ type Props = {
     slug: string
   }
 }
-
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export const revalidate = 1
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   // read route params
   const post = await prisma.post.findFirst({
     where: {
-      slug: params.slug
-    }
+      slug: params.slug,
+    },
   })
-    
 
   return {
     title: post?.title,
     openGraph: {
-      images: [
-        `https://source.unsplash.com/random/400x170?${post?.title
-          ?.split(' ')
-          .join(',')}`,
-      ],
+      images: [`https://source.unsplash.com/random/400x170?${post?.title?.split(' ').join(',')}`],
     },
   }
 }
 export default async function Post({ params }: Props) {
   const post = await prisma.post.findFirst({
     where: {
-      slug: params.slug
-    }
+      slug: params.slug,
+    },
   })
 
   return (
@@ -59,9 +51,7 @@ export default async function Post({ params }: Props) {
           {/*eslint-disable-next-line @next/next/no-img-element*/}
           <img
             referrerPolicy={'no-referrer'}
-            src={
-              'https://source.unsplash.com/random/400x170?tech,code,webdesign,backend,frontend'
-            }
+            src={'https://source.unsplash.com/random/400x170?tech,code,webdesign,backend,frontend'}
             alt={'banner image'}
             width={600}
             height={100}
@@ -73,10 +63,7 @@ export default async function Post({ params }: Props) {
         </div>
         <h1>{post?.title}</h1>
         <p>{moment(post?.created_at).fromNow()}</p>
-        <div
-          className={'text-justify'}
-          dangerouslySetInnerHTML={{ __html: marked.parse(`${post?.content}`) }}
-        />
+        <div className={'text-justify'} dangerouslySetInnerHTML={{ __html: marked.parse(`${post?.content}`) }} />
       </article>
     </main>
   )
