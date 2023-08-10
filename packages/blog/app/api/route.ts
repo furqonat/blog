@@ -19,7 +19,7 @@ export async function GET(request: Request) {
             status: true,
         }
     })
-    const total = await prisma.post.count()
+    const total = await prisma.post.count({ where: { status: true } })
     return NextResponse.json({
         data: posts,
         total: total

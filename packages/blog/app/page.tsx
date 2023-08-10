@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import { cache } from 'react'
 
 const prisma = new PrismaClient()
 
@@ -10,8 +11,7 @@ export const metadata: Metadata = {
 }
 
 export const revalidate = 1
-
-async function getPosts() {
+export const getPosts = cache(async () => {
   return await prisma.post.findMany({
     take: 20,
     orderBy: {
@@ -24,9 +24,9 @@ async function getPosts() {
       status: true,
     },
   })
-}
+})
 
-async function getPython() {
+export const getPython = cache(async () => {
   return await prisma.post.findMany({
     where: {
       categories: {
@@ -43,9 +43,9 @@ async function getPython() {
     },
     take: 20,
   })
-}
+})
 
-async function getJsAndTs() {
+export const getJsAndTs = cache(async () => {
   return await prisma.post.findMany({
     where: {
       categories: {
@@ -62,7 +62,7 @@ async function getJsAndTs() {
     },
     take: 20,
   })
-}
+})
 
 export default async function PostPage() {
   const posts = await getPosts()

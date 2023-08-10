@@ -8,8 +8,9 @@ import Draft from './draft'
 export const revalidate = 1
 
 const prisma = new PrismaClient()
-export default async function Index() {
-  const posts = await prisma.post.findMany({
+
+async function getPosts() {
+  return await prisma.post.findMany({
     include: {
       categories: true,
     },
@@ -17,6 +18,9 @@ export default async function Index() {
       created_at: 'desc',
     },
   })
+}
+export default async function Index() {
+  const posts = await getPosts()
   return (
     <main className={'container mx-auto flex flex-col gap-10'}>
       <div />
