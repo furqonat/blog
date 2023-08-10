@@ -17,3 +17,8 @@ export async function POST(request: Request) {
   }
   return NextResponse.json({ message: 'success create post', id: post.id })
 }
+
+export async function GET() {
+  const posts = await prisma.post.findMany({ include: { categories: true }, orderBy: { created_at: 'desc' } })
+  return NextResponse.json(posts)
+}

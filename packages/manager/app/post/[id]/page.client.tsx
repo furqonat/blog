@@ -28,6 +28,8 @@ export default function PageClient(props: Props) {
   const [content, setContent] = useState<string | undefined | null>(post.content)
   const [categoryValue, setCategoryValue] = useState<SelectOptions[]>([])
   const [optionValue, setOptionvalue] = useState<SelectOptions[]>([])
+  const [loadingDraft, setLoadingDraft] = useState(false)
+  const [loadingPublish, setLoadingPublish] = useState(false)
 
   const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
@@ -36,6 +38,7 @@ export default function PageClient(props: Props) {
 
   const handleOnDraftClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
+    setLoadingDraft(true)
     const body = {
       title: title,
       slug: title.trim().split(' ').join('-'),
@@ -53,22 +56,26 @@ export default function PageClient(props: Props) {
         if (resp.ok) {
           if (!toast.isActive('success')) {
             toast.success('Success update cotent', { toastId: 'success' })
+            setLoadingDraft(false)
             window.location.reload()
           }
         } else {
           if (!toast.isActive('error')) {
-            toast.success('Error update content', { toastId: 'error' })
+            setLoadingDraft(false)
+            toast.error('Error update content', { toastId: 'error' })
           }
         }
       })
       .catch((error) => {
         if (!toast.isActive('error')) {
-          toast.success(`Error update content ${error.toString()}`, { toastId: 'error' })
+          setLoadingDraft(false)
+          toast.error(`Error update content ${error.toString()}`, { toastId: 'error' })
         }
       })
   }
   const handleOnPublishClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
+    setLoadingPublish(true)
     const body = {
       title: title,
       slug: title.trim().split(' ').join('-'),
@@ -83,6 +90,7 @@ export default function PageClient(props: Props) {
       body: JSON.stringify(body),
     })
       .then((resp) => {
+        setLoadingPublish(false)
         if (resp.ok) {
           if (!toast.isActive('success')) {
             toast.success('Success update cotent', { toastId: 'success' })
@@ -90,13 +98,14 @@ export default function PageClient(props: Props) {
           }
         } else {
           if (!toast.isActive('error')) {
-            toast.success('Error update content', { toastId: 'error' })
+            toast.error('Error update content', { toastId: 'error' })
           }
         }
       })
       .catch((error) => {
+        setLoadingPublish(false)
         if (!toast.isActive('error')) {
-          toast.success(`Error update content ${error.toString()}`, { toastId: 'error' })
+          toast.error(`Error update content ${error.toString()}`, { toastId: 'error' })
         }
       })
   }
@@ -137,10 +146,8 @@ export default function PageClient(props: Props) {
             />
           </div>
           <div className={'flex gap-5 justify-center'}>
-            <button
-              className={'btn btn-primary rounded-md'}
-              onClick={handleOnPublishClick}
-            >
+            <button className={'btn btn-primary rounded-md'} onClick={handleOnPublishClick}>
+              {loadingPublish ? <span className={'loading loading-spinner'}></span> : null}
               Publish
             </button>
             <button
@@ -149,6 +156,7 @@ export default function PageClient(props: Props) {
                 'btn btn-neutral bg-gray-200 text-black border-gray-200 border-solid border hover:bg-gray-100 rounded-md'
               }
             >
+              {loadingDraft ? <span className={'loading loading-spinner'}></span> : null}
               Draft
             </button>
           </div>

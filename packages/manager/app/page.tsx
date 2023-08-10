@@ -1,26 +1,34 @@
-import { PrismaClient } from '@prisma/client'
+'use client'
+
 import Image from 'next/image'
 import moment from 'moment'
 import NewPost from './newPost'
 import Publish from './publish'
 import Draft from './draft'
+import { useEffect, useState } from 'react'
 
-export const revalidate = 1
+export default function Index() {
+  const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(true)
 
-const prisma = new PrismaClient()
+  useEffect(() => {
+    setLoading(true)
+    fetch('/api/post')
+      .then((e) => e.json())
+      .then((resp) => {
+        setPosts(resp)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [])
 
-async function getPosts() {
-  return await prisma.post.findMany({
-    include: {
-      categories: true,
-    },
-    orderBy: {
-      created_at: 'desc',
-    },
-  })
-}
-export default async function Index() {
-  const posts = await getPosts()
+  if (loading) {
+    return (
+      <main className={'container mx-auto flex flex-col min-h-screen justify-center min-w-full items-center'}>
+        <span className={'loading loading-spinner'}></span>
+      </main>
+    )
+  }
   return (
     <main className={'container mx-auto flex flex-col gap-10'}>
       <div />
@@ -29,7 +37,7 @@ export default async function Index() {
           <h1 className={'text-4xl font-bold flex-1'}>Posts</h1>
           <NewPost />
         </div>
-        {posts?.map((item) => {
+        {posts?.map((item: any) => {
           return (
             <a
               href={`/post/${item.id}`}
@@ -49,7 +57,7 @@ export default async function Index() {
                 <p className={'text-ellipsis line-clamp-1'}>{moment(item.created_at).fromNow()}</p>
                 <div className={'card-actions'}>
                   <div className={'flex-1 flex gap-4 xs:flex-col sm:flex-col flex-row'}>
-                    {item?.categories?.map((category, index) => {
+                    {item?.categories?.map((category: any, index: number) => {
                       if (index < 2) {
                         return (
                           <div key={category.name} className={'badge badge-neutral rounded-md'}>
