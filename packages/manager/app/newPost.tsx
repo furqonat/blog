@@ -6,7 +6,7 @@ export default function NewPost() {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const [title, setTitle] = useState('')
   const handleOnClickCreate = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault()
+    e.preventDefault();
   }
   return (
     <>
@@ -23,9 +23,7 @@ export default function NewPost() {
             onChange={(e) => setTitle(e.target.value)}
           />
           <div className={'modal-action'}>
-            <div className={'btn btn-primary rounded-md'} onClick={(e) => {}}>
-              Create
-            </div>
+            <div className={'btn btn-primary rounded-md'} onClick={(e) => {}}>Create</div>
             <button className={'btn rounded-md'}>Cancel</button>
           </div>
         </form>
