@@ -40,6 +40,14 @@ export default function Content(props: ContentProps) {
         })
         .catch(() => setLoading(false))
     }
+    const ads = document.getElementsByClassName('adsbygoogle').length
+    for (let i = 0; i < ads; i++) {
+      try {
+        ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
+      } catch (e) {
+        // do nothing
+      }
+    }
   }, [props?.category])
 
   if (loading) {
@@ -76,39 +84,49 @@ export default function Content(props: ContentProps) {
   }
   return (
     <>
-      {posts?.map((post: any) => (
-        <a
-          href={`/post/${post.slug}`}
-          key={post.id}
-          className={'card w-96 border border-solid border-gray-200 flex-shrink-0'}
-        >
-          <Image
-            width={400}
-            height={400}
-            src={`https://source.unsplash.com/random/400x170?${post.title.split(' ').join(',')}`}
-            alt={post.title}
-          />
-          <div className="card-body">
-            <h2 className="card-title text-ellipsis line-clamp-1">{post.title}</h2>
-            <div className="card-actions justify-end">
-              <div className={'flex flex-row gap-2 w-full items-center'}>
-                <div className={'flex-1 flex gap-4'}>
-                  {post?.categories.map((category: any, index: any) => {
-                    if (index < 2) {
-                      return (
-                        <div key={category.name} className={'badge badge-neutral rounded-md'}>
-                          {category.name}
-                        </div>
-                      )
-                    }
-                    return null
-                  })}
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-format="fluid"
+        data-ad-layout-key="-7a+ex+d-5b+81"
+        data-ad-client="ca-pub-2788783079300057"
+        data-ad-slot="3038192574"
+      ></ins>
+      {posts?.map((post: any, index: number) => {
+        return (
+          <a
+            href={`/post/${post.slug}`}
+            key={post.id}
+            className={'card w-96 border border-solid border-gray-200 flex-shrink-0'}
+          >
+            <Image
+              width={400}
+              height={400}
+              src={`https://source.unsplash.com/random/400x170?${post.title.split(' ').join(',')}`}
+              alt={post.title}
+            />
+            <div className="card-body">
+              <h2 className="card-title text-ellipsis line-clamp-1">{post.title}</h2>
+              <div className="card-actions justify-end">
+                <div className={'flex flex-row gap-2 w-full items-center'}>
+                  <div className={'flex-1 flex gap-4'}>
+                    {post?.categories.map((category: any, index: any) => {
+                      if (index < 2) {
+                        return (
+                          <div key={category.name} className={'badge badge-neutral rounded-md'}>
+                            {category.name}
+                          </div>
+                        )
+                      }
+                      return null
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        )
+      })}
     </>
   )
 }
