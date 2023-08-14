@@ -9,7 +9,6 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 type Props = {
-  onSave?: () => void
   post: {
     categories: {
       id: string

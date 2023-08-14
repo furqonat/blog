@@ -4,6 +4,7 @@ import { Open_Sans } from 'next/font/google'
 import { ReactNode } from 'react'
 import { Navbar } from '../prebuilt'
 import { Analytics } from '@vercel/analytics/react'
+import Script from 'next/script'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -19,6 +20,13 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2788783079300057"
+          crossOrigin="anonymous"
+        ></Script>
+      </head>
       <body className={`${openSans.className} flex flex-col gap-10 min-h-screen`}>
         <div className={'flex-1'}>
           <Navbar />
