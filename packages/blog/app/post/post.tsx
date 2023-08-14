@@ -15,6 +15,14 @@ export default function Post() {
   const [take] = useState(5)
   const [skip, setSkip] = useState(0)
   useEffect(() => {
+    const ads = document.getElementsByClassName('adsbygoogle').length
+    for (let i = 0; i < ads; i++) {
+      try {
+        ;((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
+      } catch (e) {
+        // do nothing
+      }
+    }
     setLoadingPosts(true)
     fetch(`/api?take=${take}&skip=${skip}`)
       .then((res) => res.json())
@@ -98,6 +106,16 @@ export default function Post() {
                 </div>
               </div>
             ))}
+        <ins
+          className="adsbygoogle"
+          style={{
+            display: 'block',
+          }}
+          data-ad-client="ca-pub-2788783079300057"
+          data-ad-slot="5400632038"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
         <ResponsivePagination
           current={page}
           total={Math.round(count / take)}
