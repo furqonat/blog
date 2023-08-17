@@ -11,104 +11,73 @@ export default function AboutPage() {
         <article className={'prose'}>
           <h1>About Me</h1>
           <p>
-            A passionate full-stack developer with a creative mind, turning
-            ideas into elegant solutions one line of code at a time
+            A passionate full-stack developer with a creative mind, turning ideas into elegant solutions one line of
+            code at a time
           </p>
         </article>
       </div>
       <section className={'grid grid-cols-2 gap-8 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 '}>
-        <div
-          className={
-            'flex flex-row items-center justify-center max-h-[400px] bg-gray-200'
-          }
-        >
-          <Image
-            placeholder={'empty'}
-            alt={'about me'}
-            src={'/fullstack.jpg'}
-            width={400}
-            height={400}
-          />
+        <div className={'flex flex-row items-center justify-center max-h-[400px] bg-gray-200'}>
+          <Image placeholder={'empty'} alt={'about me'} src={'/fullstack.jpg'} width={400} height={400} />
         </div>
         <article className={`prose text-justify bg-gray-200 p-8 `}>
           <h2>Furqon Romdhani</h2>
           <pre>Fullstack Developer</pre>
-          <div
-            onClick={() => setReadMore(!readMore)}
-            className={`${readMore ? 'text-ellipsis line-clamp-6' : ''}`}
-          >
+          <div onClick={() => setReadMore(!readMore)} className={`${readMore ? 'text-ellipsis line-clamp-6' : ''}`}>
             <p>
-              Hello there! Welcome to my profile. I&apos;m Furqon Romdhani, a
-              passionate and experienced full-stack developer based in
-              Indonesia.
+              Hello! I&apos;m Furqon Romdhani, a passionate Fullstack Developer with over 2 years of experience in
+              crafting robust and user-centric web applications. I thrive on the challenges and creative opportunities
+              that come with building both the frontend and backend components of a project.
             </p>
+            <h3>My Journey </h3>
             <p>
-              With over 3 years of hands-on experience, I have immersed myself
-              in the world of software development, specializing in a wide array
-              of technologies including Java with Spring Boot, TypeScript with
-              Next.js, Python with Flask, Kotlin with Jetpack Compose, and
-              NestJS. I also have extensive experience in working with Firebase
-              and MySQL, two powerful technologies that have been instrumental
-              in building scalable and dynamic applications.
+              My journey in the world of web development began more than 2 years ago, and I've been hooked ever since. I
+              started by immersing myself in the fundamentals of programming, gradually expanding my skills to encompass
+              a wide range of technologies. This journey has not only refined my technical abilities but also instilled
+              in me a deep appreciation for the art of creating seamless online experiences.
             </p>
-
+            <h3>Frontend Expertise</h3>
             <p>
-              As a full-stack developer, I thrive in crafting robust and
-              versatile solutions that span across various technologies and
-              platforms. I&apos;m proficient in building scalable backend
-              systems using Spring Boot and NestJS, while also having a knack
-              for creating dynamic and interactive front-end experiences with
-              Next.js and Jetpack Compose. Additionally, I&apos;m well-versed in
-              developing RESTful APIs and microservices using Flask and Spring
-              Boot, often deploying them on AWS Serverless architecture and
-              utilizing Docker for containerization. For data storage and
-              management, I have utilized the flexibility of Firebase and the
-              reliability of MySQL databases.
+              On the frontend, I excel in translating design concepts into captivating user interfaces. With a keen eye
+              for detail and a focus on user experience, I harness the power of HTML, CSS, and JavaScript frameworks
+              like React to breathe life into designs. I'm a firm believer in responsive and accessible design, ensuring
+              that users across different devices and abilities can engage with the applications I develop.
             </p>
-
+            <h3>Backend Wizardry </h3>
             <p>
-              My journey in this field began with a strong foundation in
-              education and learning, but it&apos;s the real-world projects and
-              experiences that have shaped me into the developer I am today.
-              Throughout my career, I&apos;ve had the opportunity to collaborate
-              with talented teams, working for a remarkable company where we
-              tackle exciting and cutting-edge projects.
+              When it comes to the backend, I revel in architecting and implementing efficient server-side solutions. My
+              expertise spans various backend technologies, and I&apos;m proficient in setting up databases, designing
+              APIs, and handling server logic. Whether it&apos;s building RESTful APIs or diving into the world of
+              GraphQL, I take pride in creating the backbone that supports the frontend magic.
             </p>
-
+            <h3>Problem Solver </h3>
             <p>
-              Beyond my professional pursuits, I&apos;m an avid tech enthusiast,
-              always keeping a keen eye on the latest trends and advancements in
-              the tech industry. When I&apos;m not coding, you can often find me
-              exploring nature, reading tech blogs, or participating in
-              hackathons that challenge me to think outside the box.
+              Throughout my career, I&apos;ve encountered and overcome numerous technical challenges. Problem-solving is
+              at the core of what I do, and I approach each hurdle as an opportunity to learn and innovate. My
+              analytical mindset and ability to think outside the box have proven invaluable in troubleshooting and
+              finding elegant solutions.
             </p>
-
+            <h3> Continuous Learning </h3>
             <p>
-              As a developer, I believe in continuous growth and improvement. I
-              strive to stay adaptable, embracing new technologies and
-              methodologies to deliver the best possible solutions for each
-              unique project.
+              Technology is constantly evolving, and I&apos;m committed to staying at the forefront of the field.
+              I&apos;m an avid learner, always seeking out new tools, libraries, and methodologies that can elevate my
+              development process. This drive to evolve ensures that I deliver solutions that are not only current but
+              also future-proof.
             </p>
-
+            <h3>Let&apos;s Connect!</h3>
             <p>
-              I value integrity, open communication, and teamwork, as they are
-              essential elements in achieving excellence in any endeavor. By
-              combining my technical skills with a creative mindset and a
-              commitment to delivering top-notch results, I aspire to make a
-              positive impact in the ever-evolving world of technology.
-            </p>
-
-            <p>
-              I&apos;m thrilled to connect with like-minded individuals, fellow
-              developers, and potential collaborators. Feel free to reach out to
-              me for exciting discussions, project opportunities, or simply to
-              connect over our shared passion for coding and technology.
-            </p>
-
-            <p>
-              Thank you for visiting my profile, and I&apos;m looking forward to
-              engaging with you on this amazing journey of innovation and
-              development!
+              I&apos;m excited about the potential to collaborate on new and exciting projects. Whether it&apos;s
+              refining the user experience, optimizing application performance, or architecting complex systems,
+              I&apos;m ready to contribute my skills and experience to make a meaningful impact. Feel free to reach out
+              to me via{' '}
+              <a href="https://www.linkedin.com/in/furqon-romdhani-724a29150/" target={'_blank'}>
+                LinkedIn
+              </a>
+              or
+              <a href="https://github.com/furqonat" target={'_blank'}>
+                GitHub.
+              </a>
+              Let&apos;s connect and explore the possibilities!
             </p>
           </div>
         </article>
