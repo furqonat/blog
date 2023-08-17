@@ -31,7 +31,7 @@ export default function AboutPage() {
             </p>
             <h3>My Journey </h3>
             <p>
-              My journey in the world of web development began more than 2 years ago, and I've been hooked ever since. I
+              My journey in the world of web development began more than 2 years ago, and I&apos;ve been hooked ever since. I
               started by immersing myself in the fundamentals of programming, gradually expanding my skills to encompass
               a wide range of technologies. This journey has not only refined my technical abilities but also instilled
               in me a deep appreciation for the art of creating seamless online experiences.
@@ -40,7 +40,7 @@ export default function AboutPage() {
             <p>
               On the frontend, I excel in translating design concepts into captivating user interfaces. With a keen eye
               for detail and a focus on user experience, I harness the power of HTML, CSS, and JavaScript frameworks
-              like React to breathe life into designs. I'm a firm believer in responsive and accessible design, ensuring
+              like React to breathe life into designs. I&apos;m a firm believer in responsive and accessible design, ensuring
               that users across different devices and abilities can engage with the applications I develop.
             </p>
             <h3>Backend Wizardry </h3>
