@@ -1,19 +1,22 @@
 import { PrismaClient } from '@prisma/client'
 
-const EXTERNAL_DATA_URL = 'https://byfurqon.com/posts'
+const EXTERNAL_DATA_URL = 'https://byfurqon.com/post'
 const prisma = new PrismaClient()
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      <url>
-       <loc>https://byfurqon.com</loc>
+       <loc>https://byfurqon.com/</loc>
      </url>
      <url>
        <loc>https://byfurqon.com/about</loc>
      </url>
      <url>
        <loc>https://byfurqon.com/post</loc>
+     </url>
+     <url>
+       <loc>https://byfurqon.com/privacy</loc>
      </url>
      ${posts
        .map(({ slug }) => {
