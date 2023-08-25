@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "post" (
+CREATE TABLE "post" IF NOT EXISTS (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE "post" (
 );
 
 -- CreateTable
-CREATE TABLE "category" (
+CREATE TABLE "category" IF NOT EXISTS (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
 
@@ -19,7 +19,7 @@ CREATE TABLE "category" (
 );
 
 -- CreateTable
-CREATE TABLE "_categoryTopost" (
+CREATE TABLE "_categoryTopost" IF NOT EXISTS (
     "A" TEXT NOT NULL,
     "B" TEXT NOT NULL
 );

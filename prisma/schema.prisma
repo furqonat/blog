@@ -12,17 +12,27 @@ datasource db {
 }
 
 model post {
-  id         String     @id @default(cuid())
-  title      String
-  slug       String
-  content    String?    @db.Text
-  created_at DateTime   @default(now())
-  status     Boolean    @default(false)
-  categories category[]
+  id           String     @id @default(cuid())
+  title        String
+  slug         String
+  content      String?    @db.Text
+  created_at   DateTime   @default(now())
+  status       Boolean    @default(false)
+  categories   category[]
+  related_post post[]     @relation("related_post")
+  related      post[]     @relation("related_post")
+  comments      comment[]
 }
 
 model category {
   id   String @id @default(cuid())
   name String
   post post[]
+}
+
+model comment {
+  id         String   @id @default(cuid())
+  created_at DateTime @default(now())
+  post       post     @relation(fields: [post_id], references: [id])
+  post_id     String
 }
