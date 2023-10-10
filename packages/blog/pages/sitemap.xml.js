@@ -33,7 +33,7 @@ function generateSiteMap(posts) {
        <url>
            <loc>${`${EXTERNAL_DATA_URL}/${slug}`}</loc>
            <changefreq>hourly</changefreq>
-           <lastmod>${new Date()}</lastmod>
+           <lastmod>${new Date().toISOString()}</lastmod>
            <priority>0.7</priority>
        </url>
      `
