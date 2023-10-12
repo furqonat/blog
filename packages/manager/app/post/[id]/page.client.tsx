@@ -1,12 +1,12 @@
 'use client'
 
 import { post } from '@prisma/client'
-import MDEditor from '@uiw/react-md-editor'
+import { Editor } from 'novel'
 import { useEffect, useState } from 'react'
-import styles from './page.module.css'
 import CreatableSelect from 'react-select/creatable'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import styles from './page.module.css'
 
 type Props = {
   post: {
@@ -162,7 +162,15 @@ export default function PageClient(props: Props) {
         </div>
         <div className={'grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-5'}>
           <div className={'col-span-2'}>
-            <MDEditor value={`${content}`} onChange={(value) => setContent(value)} preview={'edit'} overflow={false} />
+            <Editor
+              disableLocalStorage={true}
+              defaultValue={`${content}`}
+              onUpdate={(e) => {
+                if (e) {
+                  setContent(e?.getText())
+                }
+              }}
+            />
           </div>
           <div>
             <div className={'border-gray-200 border border-solid p-4 flex flex-col gap-5 rounded-sm'}>
